@@ -18,12 +18,8 @@ permissions:
 env:
   CLANG_DOWNLOAD_URL: "https://github.com/Impqxr/aosp_clang_ci/releases/download/13289611/clang-13289611-linux-x86.tar.xz"
   KERNEL_TREE_URL: "https://github.com/Impqxr/kernel_xiaomi_sm8250"
-  ANYKERNEL_URL_ALIOTH: "https://github.com/Impqxr/AKalioth"
-  ANYKERNEL_BRANCH_ALIOTH: "main"
   ANYKERNEL_URL_MUNCH: "https://github.com/Impqxr/AKmunch"
   ANYKERNEL_BRANCH_MUNCH: "main"
-  ANYKERNEL_URL_APOLLO: "https://github.com/Impqxr/AKapollo"
-  ANYKERNEL_BRANCH_APOLLO: "main"
 
 jobs:
   cache_clang:
@@ -59,87 +55,6 @@ jobs:
     strategy:
       matrix:
         config:
-          # *-* Alioth *-*
-          - name: "KernelSU-Next Only (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "base"
-            KERNELSU_NAME: "KSUN"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/refs/heads/dev/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "legacy"
-            KERNELSU_PATCHES: ""
-
-          - name: "KernelSU-Next Only + BPF (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "base-bpf"
-            KERNELSU_NAME: "KSUN"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/refs/heads/dev/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "legacy"
-            KERNELSU_PATCHES: ""
-
-          - name: "KernelSU-Next with SuSFS (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "susfs-v2.0.0-test"
-            KERNELSU_NAME: "KSUN"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/Impqxr/KernelSU-Next/refs/heads/legacy-susfs/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "legacy-susfs"
-            KERNELSU_PATCHES: ""
-
-          - name: "KernelSU-Next with SuSFS + BPF (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "susfs-v2.0.0-test-bpf"
-            KERNELSU_NAME: "KSUN"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/Impqxr/KernelSU-Next/refs/heads/legacy-susfs/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "legacy-susfs"
-            KERNELSU_PATCHES: ""
-
-          - name: "Rissu's KernelSU Only (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "base"
-            KERNELSU_NAME: "RKSU"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/rsuntk/KernelSU/refs/heads/main/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "main"
-            KERNELSU_PATCHES: ""
-
-          - name: "Rissu's KernelSU Only + BPF (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "base-bpf"
-            KERNELSU_NAME: "RKSU"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/rsuntk/KernelSU/refs/heads/main/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "main"
-            KERNELSU_PATCHES: ""
-
-          - name: "Rissu's KernelSU with SuSFS (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "susfs-v2.0.0-test"
-            KERNELSU_NAME: "RKSU"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/rsuntk/KernelSU/refs/heads/main/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "susfs-rksu-master"
-            KERNELSU_PATCHES: ""
-
-          - name: "Rissu's KernelSU with SuSFS + BPF (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "susfs-v2.0.0-test-bpf"
-            KERNELSU_NAME: "RKSU"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/rsuntk/KernelSU/refs/heads/main/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "susfs-rksu-master"
-            KERNELSU_PATCHES: ""
-
-          - name: "No KSU (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "base"
-            KERNELSU_NAME: ""
-            KERNELSU_SETUP_URL: ""
-            KERNELSU_SETUP_BRANCH: ""
-            KERNELSU_PATCHES: ""
-
-          - name: "No KSU + BPF (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "base-bpf"
-            KERNELSU_NAME: ""
-            KERNELSU_SETUP_URL: ""
-            KERNELSU_SETUP_BRANCH: ""
-            KERNELSU_PATCHES: ""
-
           # *-* Munch *-*
           - name: "KernelSU-Next Only (munch)"
             KERNEL_DEVICE_CONFIG: "munch"
@@ -221,87 +136,6 @@ jobs:
             KERNELSU_SETUP_BRANCH: ""
             KERNELSU_PATCHES: ""
 
-          # *-* Apollo *-*
-          - name: "KernelSU-Next Only (apollo)"
-            KERNEL_DEVICE_CONFIG: "apollo"
-            KERNEL_TREE_BRANCH: "base"
-            KERNELSU_NAME: "KSUN"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/refs/heads/dev/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "legacy"
-            KERNELSU_PATCHES: ""
-
-          - name: "KernelSU-Next Only + BPF (apollo)"
-            KERNEL_DEVICE_CONFIG: "apollo"
-            KERNEL_TREE_BRANCH: "base-bpf"
-            KERNELSU_NAME: "KSUN"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/refs/heads/dev/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "legacy"
-            KERNELSU_PATCHES: ""
-
-          - name: "KernelSU-Next with SuSFS (apollo)"
-            KERNEL_DEVICE_CONFIG: "apollo"
-            KERNEL_TREE_BRANCH: "susfs-v2.0.0-test"
-            KERNELSU_NAME: "KSUN"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/Impqxr/KernelSU-Next/refs/heads/legacy-susfs/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "legacy-susfs"
-            KERNELSU_PATCHES: ""
-
-          - name: "KernelSU-Next with SuSFS + BPF (apollo)"
-            KERNEL_DEVICE_CONFIG: "apollo"
-            KERNEL_TREE_BRANCH: "susfs-v2.0.0-test-bpf"
-            KERNELSU_NAME: "KSUN"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/Impqxr/KernelSU-Next/refs/heads/legacy-susfs/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "legacy-susfs"
-            KERNELSU_PATCHES: ""
-
-          - name: "Rissu's KernelSU Only (apollo)"
-            KERNEL_DEVICE_CONFIG: "apollo"
-            KERNEL_TREE_BRANCH: "base"
-            KERNELSU_NAME: "RKSU"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/rsuntk/KernelSU/refs/heads/main/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "main"
-            KERNELSU_PATCHES: ""
-
-          - name: "Rissu's KernelSU Only + BPF (apollo)"
-            KERNEL_DEVICE_CONFIG: "apollo"
-            KERNEL_TREE_BRANCH: "base-bpf"
-            KERNELSU_NAME: "RKSU"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/rsuntk/KernelSU/refs/heads/main/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "main"
-            KERNELSU_PATCHES: ""
-
-          - name: "Rissu's KernelSU with SuSFS (apollo)"
-            KERNEL_DEVICE_CONFIG: "apollo"
-            KERNEL_TREE_BRANCH: "susfs-v2.0.0-test"
-            KERNELSU_NAME: "RKSU"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/rsuntk/KernelSU/refs/heads/main/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "susfs-rksu-master"
-            KERNELSU_PATCHES: ""
-
-          - name: "Rissu's KernelSU with SuSFS + BPF (apollo)"
-            KERNEL_DEVICE_CONFIG: "apollo"
-            KERNEL_TREE_BRANCH: "susfs-v2.0.0-test-bpf"
-            KERNELSU_NAME: "RKSU"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/rsuntk/KernelSU/refs/heads/main/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "susfs-rksu-master"
-            KERNELSU_PATCHES: ""
-
-          - name: "No KSU (apollo)"
-            KERNEL_DEVICE_CONFIG: "apollo"
-            KERNEL_TREE_BRANCH: "base"
-            KERNELSU_NAME: ""
-            KERNELSU_SETUP_URL: ""
-            KERNELSU_SETUP_BRANCH: ""
-            KERNELSU_PATCHES: ""
-
-          - name: "No KSU + BPF (apollo)"
-            KERNEL_DEVICE_CONFIG: "apollo"
-            KERNEL_TREE_BRANCH: "base-bpf"
-            KERNELSU_NAME: ""
-            KERNELSU_SETUP_URL: ""
-            KERNELSU_SETUP_BRANCH: ""
-            KERNELSU_PATCHES: ""
-
     steps:
       - name: Display Inputs
         run: |
@@ -311,9 +145,7 @@ jobs:
           echo "KernelSU Branch: ${{ matrix.config.KERNELSU_SETUP_BRANCH }}"
           echo "KernelSU Name: ${{ matrix.config.KERNELSU_NAME }}"
           echo "KernelSU Patches: ${{ matrix.config.KERNELSU_PATCHES }}"
-          echo "AnyKernel URL (alioth): ${{ env.ANYKERNEL_URL_ALIOTH }}/tree/${{ env.ANYKERNEL_BRANCH_ALIOTH }}"
           echo "AnyKernel URL (munch): ${{ env.ANYKERNEL_URL_MUNCH }}/tree/${{ env.ANYKERNEL_BRANCH_MUNCH }}"
-          echo "AnyKernel URL (apollo): ${{ env.ANYKERNEL_URL_APOLLO }}/tree/${{ env.ANYKERNEL_BRANCH_APOLLO }}"
           echo "::endgroup::"
 
       - name: Restore Clang Cache
@@ -409,9 +241,7 @@ jobs:
           echo "Display name is $FINAL_DISPLAY_NAME"
 
           case "${{ matrix.config.KERNEL_DEVICE_CONFIG }}" in
-            "alioth") git clone --recursive --depth=1 ${{ env.ANYKERNEL_URL_ALIOTH }} -b ${{ env.ANYKERNEL_BRANCH_ALIOTH }} AnyKernel3 ;;
             "munch") git clone --recursive --depth=1 ${{ env.ANYKERNEL_URL_MUNCH }} -b ${{ env.ANYKERNEL_BRANCH_MUNCH }} AnyKernel3 ;;
-            "apollo") git clone --recursive --depth=1 ${{ env.ANYKERNEL_URL_APOLLO }} -b ${{ env.ANYKERNEL_BRANCH_APOLLO }} AnyKernel3 ;;
             *) echo "no such device"; exit 1
           esac
 
