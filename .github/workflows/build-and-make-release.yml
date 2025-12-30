@@ -17,8 +17,8 @@ permissions:
 
 env:
   CLANG_DOWNLOAD_URL: "https://github.com/Impqxr/aosp_clang_ci/releases/download/13289611/clang-13289611-linux-x86.tar.xz"
-  KERNEL_TREE_URL: "https://github.com/Impqxr/kernel_xiaomi_sm8250"
-  ANYKERNEL_URL_MUNCH: "https://github.com/Impqxr/AKmunch"
+  KERNEL_TREE_URL: "https://github.com/bimoalfarrabi/kernel_xiaomi_sm8250_n0kontzz"
+  ANYKERNEL_URL_MUNCH: "https://github.com/bimoalfarrabi/AKmunch"
   ANYKERNEL_BRANCH_MUNCH: "main"
 
 jobs:
@@ -213,8 +213,8 @@ jobs:
         working-directory: ${{ steps.workspace.outputs.kernel_folder }}/out/arch/arm64/boot/
         run: |
           set -e
-          FINAL_ZIP_NAME="N0Kernel-${{ matrix.config.KERNEL_DEVICE_CONFIG }}-${{ inputs.release_tag }}"
-          FINAL_DISPLAY_NAME="N0Kernel ${{ matrix.config.KERNEL_DEVICE_CONFIG }}"
+          FINAL_ZIP_NAME="N0Kontzzz-${{ matrix.config.KERNEL_DEVICE_CONFIG }}-${{ inputs.release_tag }}"
+          FINAL_DISPLAY_NAME="N0Kontzzz ${{ matrix.config.KERNEL_DEVICE_CONFIG }}"
 
           if [[ "${{ matrix.config.KERNEL_TREE_BRANCH }}" == *bpf* ]]; then
             FINAL_ZIP_NAME="${FINAL_ZIP_NAME}-BPF"
