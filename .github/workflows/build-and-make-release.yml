@@ -284,9 +284,10 @@ jobs:
       - name: Create a release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHANGELOG: ${{ inputs.changelog }}
         run: |
           set -e
-          gh release create "${{ inputs.release_tag }}" --title "Kernel build for ${{ inputs.release_tag }}" --notes "${{ inputs.changelog }}"
+          gh release create "${{ inputs.release_tag }}" --title "Kernel build for ${{ inputs.release_tag }}" --notes "$CHANGELOG"
           for dir in artifacts/*; do
             if [ -d "$dir" ]; then
               zip_path=$(find "$dir" -name "*.zip")
