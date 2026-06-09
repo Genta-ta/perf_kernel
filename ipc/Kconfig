@@ -1,0 +1,8 @@
+
+config IPC_NS
+	bool "IPC Namespaces"
+	depends on NAMESPACES
+	help
+	  Support ipc namespaces. This allows containers to have
+	  separate POSIX and System V IPC namespaces.
+	  If unsure, say N.

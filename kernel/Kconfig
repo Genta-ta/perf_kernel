@@ -1,0 +1,17 @@
+
+config UTS_NS
+	bool "UTS Namespaces"
+	depends on NAMESPACES
+	help
+	  Support UTS namespaces. This allows containers to have
+	  their own hostname and domainname.
+	  If unsure, say N.
+
+config PID_NS
+	bool "PID Namespaces"
+	depends on NAMESPACES
+	select PROC_FS
+	help
+	  Support process ID namespaces. This allows having multiple
+	  processes with the same PID in different namespaces.
+	  If unsure, say N.
