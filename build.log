@@ -1,0 +1,19 @@
+make[1]: Entering directory '/workspaces/perf_kernel/out'
+  GEN     ./Makefile
+  Using .. as source for kernel
+  CALL    ../scripts/checksyscalls.sh
+  CHK     include/generated/compile.h
+  DTC     arch/arm64/boot/dts/vendor/qcom/kona.dtb
+  DTC     arch/arm64/boot/dts/vendor/qcom/kona-v2.dtb
+  DTC     arch/arm64/boot/dts/vendor/qcom/kona-v2.1.dtb
+  DTC     arch/arm64/boot/dts/vendor/qcom/munch-sm8250-overlay.dtbo
+  DTBOIMG arch/arm64/boot/dtbo.img
+  DTC     arch/arm64/boot/dts/vendor/qcom/kona.dtb
+  DTC     arch/arm64/boot/dts/vendor/qcom/kona.dtb
+  DTC     arch/arm64/boot/dts/vendor/qcom/kona-v2.dtb
+  DTC     arch/arm64/boot/dts/vendor/qcom/kona-v2.dtb
+  DTC     arch/arm64/boot/dts/vendor/qcom/kona-v2.1.dtb
+  DTC     arch/arm64/boot/dts/vendor/qcom/kona-v2.1.dtb
+  CAT     arch/arm64/boot/dtb.img
+  CAT     arch/arm64/boot/Image.gz-dtb
+make[1]: Leaving directory '/workspaces/perf_kernel/out'
